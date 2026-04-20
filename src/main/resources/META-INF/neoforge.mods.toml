@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "${fml_version_range}"
+license = "MIT"
+issueTrackerURL = "https://github.com/nh55/ArsNouveauLecternTweaks/issues"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+logoFile = "icon.png"
+authors = "NH55"
+description = '''
+A small addon for Ars Nouveau that disables auto-focus on the Storage Lectern search box.
+'''
+
+[[mixins]]
+config = "mixins.${mod_id}.json"
+
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neo_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "ars_nouveau"
+type = "required"
+versionRange = "[${ars_nouveau_version},)"
+ordering = "AFTER"
+side = "BOTH"

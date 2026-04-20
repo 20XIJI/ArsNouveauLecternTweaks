@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.nh55.arsnouveaulecterntweaks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "arsnouveaulecterntweaks.refmap.json",
+  "mixins": [],
+  "client": [
+    "AbstractStorageTerminalScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

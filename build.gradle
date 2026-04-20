@@ -1,0 +1,76 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'idea'
+    id 'eclipse'
+    id 'net.neoforged.moddev' version '2.0.91'
+}
+
+base {
+    archivesName = mod_id
+    version = mod_version
+    group = mod_group
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(java_version)
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases' }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    // Ars Nouveau from libs folder
+    // Download from: https://www.curseforge.com/minecraft/mc-mods/ars-nouveau/files/5680022
+    // Put the jar in libs/ folder
+    compileOnly files('libs/ars_nouveau-1.21.1-5.11.3.jar')
+}
+
+neoForge {
+    version = neo_version
+
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('runs/client')
+        }
+        server {
+            server()
+            gameDirectory = project.file('runs/server')
+            programArgument '--nogui'
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def properties = [
+            mod_id: mod_id,
+            mod_name: mod_name,
+            mod_version: mod_version,
+            minecraft_version: minecraft_version,
+            fml_version_range: fml_version_range,
+            neo_version_range: neo_version_range,
+            ars_nouveau_version: ars_nouveau_version
+    ]
+
+    inputs.properties(properties)
+
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(properties)
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "modmenu.descriptionTranslation.arsnouveaulecterntweaks": "A small addon for Ars Nouveau that disables auto-focus on the Storage Lectern search box.",
+  "arsnouveaulecterntweaks.config.title": "Ars Nouveau Lectern Tweaks Configuration",
+  "arsnouveaulecterntweaks.config.disableAutoFocus": "Disable Auto Focus",
+  "arsnouveaulecterntweaks.config.disableAutoFocus.tooltip": "Disable auto-focus on the Storage Lectern search box. When enabled, you must click the search box to type in it."
+}
