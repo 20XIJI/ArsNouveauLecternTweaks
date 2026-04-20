@@ -36,6 +36,6 @@ side = "BOTH"
 [[dependencies.${mod_id}]]
 modId = "ars_nouveau"
 type = "required"
-versionRange = "[${ars_nouveau_version},)"
+versionRange = "[${ars_nouveau_version},6.0)"
 ordering = "AFTER"
 side = "BOTH"

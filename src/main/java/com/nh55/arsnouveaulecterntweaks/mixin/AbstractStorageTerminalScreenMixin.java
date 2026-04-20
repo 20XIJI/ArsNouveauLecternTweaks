@@ -3,7 +3,6 @@ package com.nh55.arsnouveaulecterntweaks.mixin;
 import com.hollingsworth.arsnouveau.client.gui.NoShadowTextField;
 import com.nh55.arsnouveaulecterntweaks.Config;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,8 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * This mixin modifies the following behaviors when disableAutoFocus config is enabled:
  * 1. init() - Prevents setting focus to searchField when GUI opens
  * 2. onPacket() - Prevents setting focus when receiving server data
- * 3. keyPressed() - Prevents auto-focusing when any key is pressed
- * 4. charTyped() - Prevents auto-focusing when any character is typed
  */
 @Mixin(targets = "com.hollingsworth.arsnouveau.client.container.AbstractStorageTerminalScreen")
 public abstract class AbstractStorageTerminalScreenMixin extends AbstractContainerScreen {
@@ -60,30 +57,35 @@ public abstract class AbstractStorageTerminalScreenMixin extends AbstractContain
     }
 
     /**
-     * Prevent auto-focus behavior in keyPressed.
-     * IMPORTANT: ESC key (keyCode 256) must pass through to allow closing the GUI.
-     * For other keys: returns false early when searchField is not focused,
-     * letting other handlers (JEI/REI) process the key.
+     * Ars Nouveau 5.11.3 force-focuses the search field inside keyPressed when it is not focused.
+     * Stop that auto-focus path, but keep manual typing working after the user clicks the field.
      */
     @Inject(method = "keyPressed(III)Z", at = @At("HEAD"), cancellable = true)
-    private void arsNouveauLecternTweaks$onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        // Always allow ESC key to pass through for GUI closing
-        if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
+    private void arsNouveauLecternTweaks$preventAutoFocusOnKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        if (!Config.DISABLE_AUTO_FOCUS.get()) {
             return;
         }
 
-        if (Config.DISABLE_AUTO_FOCUS.get() && !this.searchField.isFocused()) {
+        if (keyCode == 256) {
+            return;
+        }
+
+        if (!this.searchField.isFocused()) {
             cir.setReturnValue(false);
         }
     }
 
     /**
-     * Prevent auto-focus behavior in charTyped.
-     * Returns false early when searchField is not focused, letting other handlers process the character.
+     * Ars Nouveau 5.11.3 force-focuses and clears the search field inside charTyped.
+     * Block that path unless the user already focused the field manually.
      */
     @Inject(method = "charTyped(CI)Z", at = @At("HEAD"), cancellable = true)
-    private void arsNouveauLecternTweaks$onCharTyped(char codePoint, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if (Config.DISABLE_AUTO_FOCUS.get() && !this.searchField.isFocused()) {
+    private void arsNouveauLecternTweaks$preventAutoFocusOnCharTyped(char codePoint, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        if (!Config.DISABLE_AUTO_FOCUS.get()) {
+            return;
+        }
+
+        if (!this.searchField.isFocused()) {
             cir.setReturnValue(false);
         }
     }
