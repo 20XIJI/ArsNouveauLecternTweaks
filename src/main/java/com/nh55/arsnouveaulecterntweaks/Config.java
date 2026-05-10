@@ -6,8 +6,6 @@ public class Config {
     public static final ModConfigSpec CLIENT_SPEC;
 
     public static ModConfigSpec.BooleanValue DISABLE_AUTO_FOCUS;
-    public static ModConfigSpec.IntValue ROW_COUNT_COLLAPSED;
-    public static ModConfigSpec.IntValue ROW_COUNT_EXPANDED;
 
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
@@ -23,22 +21,6 @@ public class Config {
                     "Default: true"
                 )
                 .define("disableAutoFocus", true);
-
-        ROW_COUNT_COLLAPSED = builder
-                .comment(
-                    "Number of item rows displayed when the crafting grid is collapsed.",
-                    "Vanilla default: 3. Higher values show more storage rows.",
-                    "Range: 3-4, Default: 4"
-                )
-                .defineInRange("rowCountCollapsed", 4, 3, 4);
-
-        ROW_COUNT_EXPANDED = builder
-                .comment(
-                    "Number of item rows displayed when the crafting grid is expanded.",
-                    "Vanilla default: 7. Higher values show more storage rows.",
-                    "Range: 3-7, Default: 7"
-                )
-                .defineInRange("rowCountExpanded", 7, 3, 7);
 
         builder.pop();
 
