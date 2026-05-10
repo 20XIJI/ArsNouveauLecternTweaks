@@ -4,12 +4,12 @@
 
 一个适用于 Minecraft 1.21.1 的 NeoForge 客户端附属模组（依赖 Ars Nouveau）。
 
-它会禁用储物讲台（Storage Lectern）搜索框的自动聚焦，避免打开界面后打字被搜索框劫持。
+它会禁用存储讲台（Storage Lectern）搜索框的自动聚焦，避免打开界面后打字被搜索框劫持。
 
 ## 功能
 
-- 禁用储物讲台搜索框自动聚焦（默认开启）。
-- 在搜索框未聚焦时，保留按 `Inventory` 键关闭界面的行为。
+- 禁用存储讲台搜索框自动聚焦（默认开启）。
+- 在搜索框未聚焦时，保留按物品栏键（默认 `E` 键）关闭界面的行为。
 - 提供客户端配置项：`lectern_tweaks.disableAutoFocus`。
 
 ## 兼容性
@@ -30,7 +30,7 @@ Release 资产由 GitHub Actions 在打标签后自动构建并上传。
 ## 安装
 
 1. 安装 Minecraft `1.21.1` 对应的 NeoForge。
-2. 安装同版本的 Ars Nouveau。
+2. 安装适配 Minecraft `1.21.1` 的 Ars Nouveau（“同版本”是指 Minecraft 版本一致，不是要求模组版本号相同）。
 3. 将 `arsnouveaulecterntweaks-<version>.jar` 放入 `mods/` 文件夹。
 4. 启动游戏。
 
