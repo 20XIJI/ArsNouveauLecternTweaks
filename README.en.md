@@ -19,24 +19,13 @@ This mod depends on **Ars Nouveau** (a magic-themed mod). The following environm
 | Component | Version |
 |-----------|---------|
 | Minecraft | `1.21.1` |
-| NeoForge | `21.1.x` |
 | Ars Nouveau | `5.11.x` |
-| Java | `21` |
-
-> Tip: NeoForge can be downloaded from https://neoforged.net. Ars Nouveau is available on CurseForge or Modrinth.
 
 ## Download
 
-Get the latest mod file (`.jar`) from **GitHub Releases**:
+Download the latest release from **GitHub Releases**:
 
 - <https://github.com/20XIJI/ArsNouveauLecternTweaks/releases/latest>
-
-## Installation
-
-1. **Install NeoForge**: Download and install NeoForge for Minecraft `1.21.1` (refer to the NeoForge website for setup guides).
-2. **Install Ars Nouveau**: Download a version of Ars Nouveau that supports Minecraft `1.21.1` (the Minecraft version must match; the mod's version number does not need to be exact).
-3. **Place the mod**: Put `arsnouveaulecterntweaks-<version>.jar` into the `mods/` folder inside your game directory.
-4. **Launch the game**: The mod takes effect once loaded.
 
 ## Configuration
 

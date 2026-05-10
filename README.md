@@ -2,7 +2,7 @@
 
 [English version](./README.en.md)
 
-你是否遇到过这样的情况：打开 Ars Nouveau 的存储讲台后，一打字就被吸入搜索框，无法正常操作界面？
+你是否遇到过这样的情况：打开新生魔艺的存储讲台后，一打字就被吸入搜索框，无法正常操作界面？
 
 这个模组正是为此而生。它禁用了存储讲台搜索框的自动聚焦，让每次打开界面时光标不再自动跳入搜索框，操作更自然。
 
@@ -14,29 +14,18 @@
 
 ## 前置要求
 
-本模组依赖 **Ars Nouveau**（一款魔法主题模组），需要以下环境：
+本模组依赖 **新生魔艺**，需要以下环境：
 
 | 项目 | 版本 |
 |------|------|
 | Minecraft | `1.21.1` |
-| NeoForge | `21.1.x` |
-| Ars Nouveau | `5.11.x` |
-| Java | `21` |
-
-> 提示：NeoForge 可从 https://neoforged.net 下载。Ars Nouveau 可在 CurseForge 或 Modrinth 上找到。
+| 新生魔艺 | `5.11.x` |
 
 ## 下载
 
-从 **GitHub Releases** 获取最新模组文件（`.jar`）：
+在 **GitHub Releases** 下载最新版本：
 
 - <https://github.com/20XIJI/ArsNouveauLecternTweaks/releases/latest>
-
-## 安装步骤
-
-1. **安装游戏平台**：为 Minecraft `1.21.1` 安装对应版本的 NeoForge（安装方式请参考 NeoForge 官网教程）。
-2. **安装 Ars Nouveau**：下载适配 Minecraft `1.21.1` 的 Ars Nouveau 模组（只需 Minecraft 版本一致即可，不要求 Ars Nouveau 版本号精确匹配）。
-3. **放入模组**：将 `arsnouveaulecterntweaks-<版本号>.jar` 拖入游戏目录下的 `mods/` 文件夹中。
-4. **启动游戏**：确认模组加载成功后即可生效。
 
 ## 配置
 
