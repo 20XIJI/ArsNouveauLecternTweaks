@@ -1,83 +1,85 @@
 # Ars Nouveau Lectern Tweaks
 
-A small NeoForge client-side addon for Ars Nouveau on Minecraft 1.21.1.
+[English version](./README.en.md)
 
-It disables the auto-focus behavior of the Storage Lectern search box, so typing does not get hijacked when you open the screen.
+一个适用于 Minecraft 1.21.1 的 NeoForge 客户端附属模组（依赖 Ars Nouveau）。
 
-## Features
+它会禁用储物讲台（Storage Lectern）搜索框的自动聚焦，避免打开界面后打字被搜索框劫持。
 
-- Disable auto-focus on Storage Lectern search input (enabled by default).
-- Keep `Inventory` key close behavior when search is not focused.
-- Configurable client option: `lectern_tweaks.disableAutoFocus`.
+## 功能
 
-## Compatibility
+- 禁用储物讲台搜索框自动聚焦（默认开启）。
+- 在搜索框未聚焦时，保留按 `Inventory` 键关闭界面的行为。
+- 提供客户端配置项：`lectern_tweaks.disableAutoFocus`。
 
-- Minecraft: `1.21.1`
-- NeoForge: `21.1.x`
-- Ars Nouveau: `5.11.x`
-- Java: `21`
+## 兼容性
 
-## Download
+- Minecraft：`1.21.1`
+- NeoForge：`21.1.x`
+- Ars Nouveau：`5.11.x`
+- Java：`21`
 
-Download compiled jars from **GitHub Releases**:
+## 下载
 
-- Latest: `https://github.com/20XIJI/ArsNouveauLecternTweaks/releases/latest`
+可从 **GitHub Releases** 下载构建好的 jar：
 
-Release assets are built from tags and uploaded automatically by GitHub Actions.
+- 最新版本：`https://github.com/20XIJI/ArsNouveauLecternTweaks/releases/latest`
 
-## Installation
+Release 资产由 GitHub Actions 在打标签后自动构建并上传。
 
-1. Install NeoForge for Minecraft `1.21.1`.
-2. Install Ars Nouveau for the same MC version.
-3. Put `arsnouveaulecterntweaks-<version>.jar` into your `mods/` folder.
-4. Start the game.
+## 安装
 
-## Configuration
+1. 安装 Minecraft `1.21.1` 对应的 NeoForge。
+2. 安装同版本的 Ars Nouveau。
+3. 将 `arsnouveaulecterntweaks-<version>.jar` 放入 `mods/` 文件夹。
+4. 启动游戏。
 
-The client config is generated at:
+## 配置
+
+客户端配置文件会生成在：
 
 - `config/arsnouveaulecterntweaks-client.toml`
 
-Key:
+关键配置：
 
-- `lectern_tweaks.disableAutoFocus = true` (default)
+- `lectern_tweaks.disableAutoFocus = true`（默认值）
 
-## Build From Source
+## 从源码构建
 
-Windows:
+Windows：
 
 ```powershell
 .\gradlew.bat clean build
 ```
 
-Linux/macOS:
+Linux/macOS：
 
 ```bash
 ./gradlew clean build
 ```
 
-Build output:
+构建产物：
 
 - `build/libs/arsnouveaulecterntweaks-<mod_version>.jar`
 - `build/libs/arsnouveaulecterntweaks-<mod_version>-sources.jar`
 
-## Versioning
+## 版本管理
 
-- `mod_version` in `gradle.properties` follows SemVer: `MAJOR.MINOR.PATCH`.
-- `minecraft_version` in `gradle.properties` tracks the target MC version.
-- Git tags should use: `v<mod_version>-mc<minecraft_version>`
-  - Example: `v1.0.0-mc1.21.1`
+- `gradle.properties` 中的 `mod_version` 采用 SemVer：`MAJOR.MINOR.PATCH`。
+- `gradle.properties` 中的 `minecraft_version` 表示目标 MC 版本。
+- Git 标签建议格式：`v<mod_version>-mc<minecraft_version>`
+- 示例：`v1.0.0-mc1.21.1`
 
-## Release Flow
+## 发布流程
 
-1. Update `mod_version` in `gradle.properties`.
-2. Update `CHANGELOG.md`.
-3. Commit and push.
-4. Create and push tag:
+1. 更新 `gradle.properties` 里的 `mod_version`。
+2. 更新 `CHANGELOG.md`。
+3. 提交并推送代码。
+4. 创建并推送标签：
 
 ```bash
 git tag v1.0.1-mc1.21.1
 git push origin v1.0.1-mc1.21.1
 ```
 
-5. GitHub Actions builds and publishes jars to Release assets.
+5. GitHub Actions 会自动构建并将 jar 上传到 Release 资产中。
