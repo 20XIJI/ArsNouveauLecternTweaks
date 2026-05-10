@@ -4,7 +4,9 @@
   "package": "com.nh55.arsnouveaulecterntweaks.mixin",
   "compatibilityLevel": "JAVA_21",
   "refmap": "arsnouveaulecterntweaks.refmap.json",
-  "mixins": [],
+  "mixins": [
+    "StorageTerminalMenuMixin"
+  ],
   "client": [
     "AbstractStorageTerminalScreenMixin"
   ],
