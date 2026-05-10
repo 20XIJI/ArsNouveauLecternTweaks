@@ -1,6 +1,3 @@
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
 plugins {
     id 'java'
     id 'maven-publish'
@@ -19,22 +16,24 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(java_version)
     }
+    withSourcesJar()
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
     maven { url = 'https://maven.neoforged.net/releases' }
-    flatDir {
-        dirs 'libs'
+    maven {
+        url = 'https://www.cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
     }
 }
 
 dependencies {
-    // Ars Nouveau from libs folder
-    // Download from: https://www.curseforge.com/minecraft/mc-mods/ars-nouveau/files/5680022
-    // Put the jar in libs/ folder
-    compileOnly files('libs/ars_nouveau-1.21.1-5.11.3.jar')
+    // Ars Nouveau dependency from CurseMaven (project 401955, file 7764018)
+    compileOnly "curse.maven:ars-nouveau-401955:7764018"
 }
 
 neoForge {

@@ -3,6 +3,8 @@
 build/
 out/
 run/
+runs/
+bin/
 
 # IDE
 .idea/
@@ -10,7 +12,9 @@ run/
 *.ipr
 *.iws
 eclipse/
+.eclipse/
 .vscode/
+.temp/
 
 # OS
 .DS_Store
@@ -21,3 +25,8 @@ logs/
 crash-reports/
 
 .omc/
+.trellis/
+.opencode/
+AGENTS.md
+.codex/
+.agents/skills/
